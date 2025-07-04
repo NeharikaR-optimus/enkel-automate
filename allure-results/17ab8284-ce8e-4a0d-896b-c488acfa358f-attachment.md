@@ -1,0 +1,43 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - link "Slack":
+    - /url: https://slack.com
+    - img "Slack"
+- heading "We emailed you a code" [level=1]
+- paragraph:
+  - text: We sent an email to
+  - strong: neharika.rout@optimusinfo.com
+  - text: . Enter the code here or tap the button in the email to continue.
+- paragraph: If you don’t see the email, check your spam or junk folder.
+- group "6-digit confirmation code":
+  - text: 6-digit confirmation code
+  - textbox "digit 1 of 6"
+  - textbox "digit 2 of 6"
+  - textbox "digit 3 of 6"
+  - text: —
+  - textbox "digit 4 of 6"
+  - textbox "digit 5 of 6"
+  - textbox "digit 6 of 6"
+- link "Open Gmail (opens in new tab)":
+  - /url: https://mail.google.com/mail/u/0/
+  - text: Open Gmail
+- link "Open Outlook (opens in new tab)":
+  - /url: https://outlook.live.com/mail/0/inbox
+  - text: Open Outlook
+- text: Can’t find your code?
+- button "Request a new code."
+- paragraph:
+  - text: Having trouble?
+  - link "Try entering a workspace URL":
+    - /url: //slack.com/ssb/workspace-signin
+- contentinfo:
+  - link "Privacy & Terms":
+    - /url: /legal
+  - link "Contact Us":
+    - /url: /help/requests/new
+- alert: loading
+- log
+- iframe
+```

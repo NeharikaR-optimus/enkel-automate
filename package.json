@@ -1,0 +1,20 @@
+{
+  "name": "enkel-automate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --max-old-space-size=4096 node_modules/.bin/playwright test"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "allure-playwright": "^3.3.0",
+    "dotenv": "^17.0.1",
+    "fs": "^0.0.1-security",
+    "playwright": "^1.53.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.2"
+  }
+}
