@@ -8,12 +8,20 @@ if (!fs.existsSync(responsesFile)) {
     process.exit(1);
 }
 
-const responses = JSON.parse(fs.readFileSync(responsesFile, 'utf-8'));
+const responsesData = JSON.parse(fs.readFileSync(responsesFile, 'utf-8'));
+
+// Handle both old format (array) and new format (object with responses property)
+const responses = Array.isArray(responsesData) ? responsesData : responsesData.responses;
+const testRunInfo = responsesData.testRunInfo || {
+    timestamp: new Date().toISOString(),
+    totalQueries: responses.length,
+    completedQueries: responses.length
+};
 
 // Generate HTML report
-function generateHTMLReport(responses) {
-    const currentDate = new Date().toLocaleString();
-    const totalQueries = responses.length;
+function generateHTMLReport(responses, testRunInfo) {
+    const currentDate = new Date(testRunInfo.timestamp).toLocaleString();
+    const totalQueries = testRunInfo.totalQueries;
     const successfulResponses = responses.filter(r => r.response && r.response !== 'No response received (timeout)').length;
     const timeouts = responses.filter(r => r.response === 'No response received (timeout)').length;
     const errorResponses = responses.filter(r => r.response && r.response.includes('apologize for the inconvenience')).length;
@@ -259,7 +267,7 @@ ${'─'.repeat(80)}
 // Generate reports
 console.log('📊 Generating reports...');
 
-const htmlReport = generateHTMLReport(responses);
+const htmlReport = generateHTMLReport(responses, testRunInfo);
 const textReport = generateTextReport(responses);
 
 // Save reports
@@ -269,4 +277,4 @@ fs.writeFileSync('test-report.txt', textReport);
 console.log('✅ Reports generated successfully!');
 console.log('📄 HTML Report: test-report.html');
 console.log('📄 Text Report: test-report.txt');
-console.log(`📊 Summary: ${responses.length} queries processed`);
+console.log(`📊 Summary: ${testRunInfo.completedQueries}/${testRunInfo.totalQueries} queries processed`);
