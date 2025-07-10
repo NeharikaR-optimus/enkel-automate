@@ -1,6 +1,0 @@
-🧩 Waiting 45 seconds to manually solve CAPTCHA...
-📨 Enter OTP manually, waiting 45 seconds...
-💬 Sending: Hello bot
-💬 Sending: What this chatbot is about
-💬 Sending: List all the documents
-💬 Sending: 

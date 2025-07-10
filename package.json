@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node --max-old-space-size=4096 node_modules/.bin/playwright test",
-    "start": "npx playwright test slackBotFlow.spec.js && node generateReport.js"
+    "start": "npx playwright test slackBotFlow.spec.js && node generateReport.js",
+    "test:clean": "rimraf allure-results allure-report && npx playwright test && npx allure generate allure-results --clean -o allure-report"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "playwright": "^1.53.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.53.2"
+    "@playwright/test": "^1.53.2",
+    "rimraf": "^6.0.1"
   }
 }

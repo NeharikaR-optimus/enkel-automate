@@ -1,2 +1,0 @@
-🧩 Solve CAPTCHA if present... waiting 30 seconds.
-📨 Enter OTP manually... waiting 30 seconds.

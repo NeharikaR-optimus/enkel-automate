@@ -1,7 +1,6 @@
 .env
 botResponses.json
 node_modules/
-allure-report/
 test-report.html
 test-report.txt
 
