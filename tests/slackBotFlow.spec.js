@@ -36,12 +36,12 @@ test('Slack RAG_BOT automation flow', async ({ browser }) => {
     for (const query of queries) {
         // Get message count before sending
         const messagesBefore = await slackPage.locator('.c-message_kit__blocks').count();
-        
+
         await slackPage.getByRole('textbox', { name: /Message to RAG_BOT/i }).fill(query);
         await slackPage.getByRole('button', { name: 'Send now' }).click();
-        
+
         await slackPage.waitForTimeout(1000);
-        
+
         let botResponded = false;
         let retries = 0;
         const maxRetries = 60; // Wait up to 2 minutes for response
@@ -49,15 +49,15 @@ test('Slack RAG_BOT automation flow', async ({ browser }) => {
 
         while (!botResponded && retries < maxRetries) {
             await slackPage.waitForTimeout(2000);
-            
+
             // Check if new messages appeared
             const messagesAfter = await slackPage.locator('.c-message_kit__blocks').count();
-            
+
             if (messagesAfter > messagesBefore) {
                 // Get the latest message(s) after our query
                 const latestMessages = await slackPage.locator('.c-message_kit__blocks').last();
                 const messageText = await latestMessages.innerText().catch(() => '');
-                
+
                 // Check if this message is from the bot (not containing our query)
                 if (messageText && !messageText.includes(query) && messageText.trim().length > 10) {
                     botResponse = messageText.trim();
@@ -65,7 +65,7 @@ test('Slack RAG_BOT automation flow', async ({ browser }) => {
                     break;
                 }
             }
-            
+
             retries++;
         }
 
@@ -76,7 +76,7 @@ test('Slack RAG_BOT automation flow', async ({ browser }) => {
             timestamp: new Date().toISOString(),
             responseTime: retries * 2 // Approximate response time in seconds
         });
-        
+
         await slackPage.waitForTimeout(1000);
     }
 
