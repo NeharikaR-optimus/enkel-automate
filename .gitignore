@@ -1,6 +1,5 @@
 .env
-botResponses.json
+
 node_modules/
-test-report.html
-test-report.txt
+
 

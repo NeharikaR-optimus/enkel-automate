@@ -1,0 +1,35 @@
+
+═══════════════════════════════════════════════════════════════════════════════
+                        SLACK RAG BOT TEST REPORT
+═══════════════════════════════════════════════════════════════════════════════
+
+Generated on: 10/7/2025, 4:06:37 pm
+
+SUMMARY:
+--------
+Total Queries Sent:     3
+Valid Responses:        2 (67%)
+Error Responses:        0 (0%)
+Timeouts:               1 (33%)
+
+DETAILED RESULTS:
+-----------------
+
+1. ✅ SUCCESS
+Query: List all the documents that are not scanned
+Response: Thinking... Please wait a moment.
+────────────────────────────────────────────────────────────────────────────────
+
+2. ✅ SUCCESS
+Query: List all the documents for supplier Stationary
+Response: You are not authorized to access data for client ''.
+────────────────────────────────────────────────────────────────────────────────
+
+3. ⏱️ TIMEOUT
+Query: List all the documents for supplier Stationary of Me
+Response: No response received (timeout)
+────────────────────────────────────────────────────────────────────────────────
+
+═══════════════════════════════════════════════════════════════════════════════
+                              END OF REPORT
+═══════════════════════════════════════════════════════════════════════════════

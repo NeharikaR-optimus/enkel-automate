@@ -1,0 +1,27 @@
+{
+  "testRunInfo": {
+    "timestamp": "2025-07-10T10:34:08.386Z",
+    "totalQueries": 3,
+    "completedQueries": 3
+  },
+  "responses": [
+    {
+      "query": "List all the documents that are not scanned",
+      "response": "Thinking... Please wait a moment.",
+      "timestamp": "2025-07-10T10:31:55.827Z",
+      "responseTime": 0
+    },
+    {
+      "query": "List all the documents for supplier Stationary",
+      "response": "You are not authorized to access data for client ''.",
+      "timestamp": "2025-07-10T10:32:04.118Z",
+      "responseTime": 4
+    },
+    {
+      "query": "List all the documents for supplier Stationary of Me",
+      "response": "No response received (timeout)",
+      "timestamp": "2025-07-10T10:34:07.378Z",
+      "responseTime": 120
+    }
+  ]
+}
