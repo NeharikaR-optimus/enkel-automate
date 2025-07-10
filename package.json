@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node --max-old-space-size=4096 node_modules/.bin/playwright test"
+    "test": "node --max-old-space-size=4096 node_modules/.bin/playwright test",
+    "start": "npx playwright test slackBotFlow.spec.js && node generateReport.js"
   },
   "author": "",
   "license": "ISC",

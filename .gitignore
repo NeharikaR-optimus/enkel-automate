@@ -2,8 +2,6 @@
 botResponses.json
 node_modules/
 allure-report/
-allure-results/
-test-results/
 test-report.html
 test-report.txt
 

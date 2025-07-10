@@ -1,0 +1,47 @@
+name: Run SlackBot Tests and Deploy Allure Report
+
+on:
+  workflow_dispatch:  # Trigger manually
+  push:
+    branches:
+      - main           # Optional: auto-trigger on push to main
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🧹 Clean previous Allure results
+        run: rm -rf allure-results
+
+      - name: 🧪 Run Playwright Tests
+        run: |
+          npx playwright install --with-deps
+          npx playwright test tests/slackBotFlow.spec.js
+        env:
+          SLACK_EMAIL: ${{ secrets.SLACK_EMAIL }}
+
+      - name: 📝 Generate Custom HTML/Text Report
+        run: node generateReport.js
+
+      - name: 📊 Generate Allure HTML Report
+        run: |
+          npm install -g allure-commandline --save-dev
+          allure generate allure-results --clean -o allure-report
+
+      - name: 🚀 Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
