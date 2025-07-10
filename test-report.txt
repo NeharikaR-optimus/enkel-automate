@@ -3,7 +3,7 @@
                         SLACK RAG BOT TEST REPORT
 ═══════════════════════════════════════════════════════════════════════════════
 
-Generated on: 10/7/2025, 4:06:37 pm
+Generated on: 10/7/2025, 4:36:52 pm
 
 SUMMARY:
 --------
@@ -17,7 +17,7 @@ DETAILED RESULTS:
 
 1. ✅ SUCCESS
 Query: List all the documents that are not scanned
-Response: Thinking... Please wait a moment.
+Response: List all the documents that are not scanned
 ────────────────────────────────────────────────────────────────────────────────
 
 2. ✅ SUCCESS
