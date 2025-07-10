@@ -271,10 +271,10 @@ const htmlReport = generateHTMLReport(responses, testRunInfo);
 const textReport = generateTextReport(responses);
 
 // Save reports
-fs.writeFileSync('test-report.html', htmlReport);
+fs.writeFileSync('index.html', htmlReport);
 fs.writeFileSync('test-report.txt', textReport);
 
 console.log('✅ Reports generated successfully!');
-console.log('📄 HTML Report: test-report.html');
+console.log('📄 HTML Report: index.html');
 console.log('📄 Text Report: test-report.txt');
 console.log(`📊 Summary: ${testRunInfo.completedQueries}/${testRunInfo.totalQueries} queries processed`);

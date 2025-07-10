@@ -4,7 +4,7 @@ on:
   push:
     branches: [develop]
     paths: 
-      - 'test-report.html'
+      - 'index.html'
       - 'botResponses.json'
 
 jobs:

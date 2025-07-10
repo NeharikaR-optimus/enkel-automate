@@ -27,7 +27,7 @@ if %errorlevel% neq 0 (
 
 echo.
 echo 🚀 Step 3: Committing and pushing to GitHub...
-git add botResponses.json test-report.html
+git add botResponses.json index.html
 git commit -m "Update test results - %date% %time%"
 git push
 
@@ -35,7 +35,7 @@ echo.
 echo ✅ Pipeline Complete!
 echo 🔄 GitHub Actions will now automatically deploy your report
 echo 🌐 Your report will be available at:
-echo    https://YOUR-GITHUB-USERNAME.github.io/enkel-automate/test-report.html
+echo    https://YOUR-GITHUB-USERNAME.github.io/enkel-automate/
 echo.
 echo 📝 Next steps:
 echo    1. Replace 'YOUR-GITHUB-USERNAME' with your actual GitHub username
