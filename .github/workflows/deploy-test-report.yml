@@ -2,7 +2,7 @@ name: Deploy Test Report
 
 on:
   push:
-    branches: [main]
+    branches: [develop]
     paths: 
       - 'test-report.html'
       - 'botResponses.json'
