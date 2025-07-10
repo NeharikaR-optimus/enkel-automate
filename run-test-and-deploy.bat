@@ -1,8 +1,14 @@
 @echo off
-echo 🤖 Running Slack Bot Tests and Deploying...
+echo 🤖 Slack Bot Hybrid Automation Pipeline
+echo ⚠️  MANUAL STEPS REQUIRED: You will need to handle CAPTCHA and OTP
 echo.
 
-echo 🧪 Step 1: Running Playwright test...
+echo 🧪 Step 1: Running Playwright test (MANUAL LOGIN REQUIRED)...
+echo 👤 Please be ready to:
+echo    - Solve CAPTCHA (30 second wait)
+echo    - Enter OTP code (20 second wait)
+echo.
+pause
 npx playwright test slackBotFlow.spec.js
 if %errorlevel% neq 0 (
     echo ❌ Test failed
@@ -26,9 +32,14 @@ git commit -m "Update test results - %date% %time%"
 git push
 
 echo.
-echo ✅ Complete! Your report will be available at:
-echo 🌐 https://YOUR-GITHUB-USERNAME.github.io/enkel-automate/test-report.html
+echo ✅ Pipeline Complete!
+echo 🔄 GitHub Actions will now automatically deploy your report
+echo 🌐 Your report will be available at:
+echo    https://YOUR-GITHUB-USERNAME.github.io/enkel-automate/test-report.html
 echo.
-echo 📝 Replace 'YOUR-GITHUB-USERNAME' with your actual GitHub username
-echo 📝 Note: It may take a few minutes for GitHub Pages to update
+echo 📝 Next steps:
+echo    1. Replace 'YOUR-GITHUB-USERNAME' with your actual GitHub username
+echo    2. Enable GitHub Pages: Settings → Pages → Source: GitHub Actions
+echo    3. Wait 2-3 minutes for deployment to complete
+echo.
 pause
