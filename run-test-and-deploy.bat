@@ -41,5 +41,6 @@ echo 📝 Next steps:
 echo    1. Replace 'YOUR-GITHUB-USERNAME' with your actual GitHub username
 echo    2. Enable GitHub Pages: Settings → Pages → Source: GitHub Actions
 echo    3. Wait 2-3 minutes for deployment to complete
+echo    4. Your code is on 'develop' branch - workflow will trigger automatically
 echo.
 pause
