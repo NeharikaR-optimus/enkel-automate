@@ -1,6 +1,0 @@
-📊 Generating reports...
-✅ Reports generated successfully!
-📄 HTML Report: index.html
-📄 Text Report: test-report.txt
-📊 Summary: 3/3 queries processed
-📝 All messages sent successfully

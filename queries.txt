@@ -1,3 +1,18 @@
 List all the documents that are not scanned
 List all the documents for supplier Stationary
 List all the documents for supplier Stationary of Me
+List all the documents for the client Stewardship Society
+List all the documents for the client Stewardship Society that are flagged
+List all the documents for the client Stewardship Society that are scanned
+List all the documents that are scanned in last month
+List all the documents that are scanned in last year
+List all the documents for id Receipt-4271693081
+List all the documents for client Mobile Wide
+List all the documents for supplier ABC Furniture
+List all the documents for client Nikant Car and supplier ABC Warehouses
+List all the documents for supplier ABC Furniture
+List all the documents for supplier ABC Furniture or client Nikant Car
+List all the documents for type Invoice
+List all the documents that have Partial Tax in thier reason
+List all the documents that are scanned in the last hour
+List all the documents for client Hero Car
