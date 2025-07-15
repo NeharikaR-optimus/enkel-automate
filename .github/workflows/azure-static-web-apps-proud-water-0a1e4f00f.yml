@@ -3,18 +3,18 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      - develop # Or your main branch name
+      - develop
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - develop # Or your main branch name
+      - develop
 
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
-    permissions: # Added permissions block for OIDC token and content access
+    permissions:
       id-token: write
       contents: read
     steps:
@@ -23,69 +23,17 @@ jobs:
           submodules: true
           lfs: false
 
-      # Step 1: Setup Node.js
-      # Allure command-line tool typically requires Node.js to run.
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18' # Use a Node.js version compatible with your Allure setup
-
-      # Step 2: Generate the Allure Report
-      # THIS IS THE CRITICAL SECTION YOU NEED TO CUSTOMIZE.
-      # Replace the 'run' commands below with your actual commands
-      # to generate your Allure report. This typically involves:
-      # 1. Installing Allure command-line tools (if not already in your project's dependencies)
-      # 2. Running your tests to generate Allure results (e.g., into an 'allure-results' folder)
-      # 3. Using 'allure generate' to create the static HTML report in the 'allure-report' folder.
-      - name: Generate Allure Report
-        run: |
-          echo "Installing Allure Commandline..."
-          # Install Allure command-line globally (or locally if preferred)
-          npm install -g allure-commandline --unsafe-perm=true --allow-root
-          
-          echo "Running tests to generate Allure results (placeholder)..."
-          # Replace this with your actual test command that generates Allure results.
-          # Example: npm test -- --reporter=allure
-          # For demonstration, let's create a dummy results file
-          mkdir -p allure-results
-          echo '{"testCases": [{"uid": "dummyTest1", "name": "Generated Dummy Test", "status": "passed"}]}' > allure-results/dummy-test-data.json
-          
-          echo "Generating Allure report into ./allure-report..."
-          # This command processes the 'allure-results' and outputs the HTML report
-          # into the 'allure-report' directory.
-          allure generate allure-results --clean -o allure-report
-          echo "Allure report generation step complete."
-
-      # These OIDC steps are from your previous workflow.
-      # Keep them if you specifically need OIDC token generation.
-      - name: Install OIDC Client from Core Package
-        run: npm install @actions/core@1.6.0 @actions/http-client
-
-      - name: Get Id Token
-        uses: actions/github-script@v6
-        id: idtoken
-        with:
-          script: |
-            const coredemo = require('@actions/core')
-            return await coredemo.getIDToken()
-          result-encoding: string
-
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          # IMPORTANT: Replace <GENERATED_HOSTNAME> with the actual secret name provided by Azure
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_<GENERATED_HOSTNAME> }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          # These configurations are correct for your setup:
-          # app_location: "/" means your main app source is at the repository root.
-          # output_location: "/" means the built content (including generated allure-report)
-          # will be deployed from the repository root.
           app_location: "/"
-          api_location: "" # Api source code path - optional
-          output_location: "/" # Built app content directory - optional
-          github_id_token: ${{ steps.idtoken.outputs.result }} # Pass the generated OIDC token
+          api_location: ""
+          output_location: "" # <--- CHANGED THIS TO EMPTY STRING
+          skip_app_build: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -96,6 +44,5 @@ jobs:
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
-          # IMPORTANT: Replace <GENERATED_HOSTNAME> with the actual secret name provided by Azure
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_<GENERATED_HOSTNAME> }}
           action: "close"
