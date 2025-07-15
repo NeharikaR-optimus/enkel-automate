@@ -1,0 +1,28 @@
+{
+    "routes": [
+        {
+            "route": "/allure-report/*",
+            "serve": "/allure-report/index.html",
+            "statusCode": 200
+        },
+        {
+            "route": "/allure-report",
+            "serve": "/allure-report/index.html",
+            "statusCode": 200
+        }
+    ],
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "/images/*.{png,jpg,gif}",
+            "/*.{css,scss,js}",
+            "/allure-report/*",
+            "/favicon.ico"
+        ]
+    },
+    "globalHeaders": {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0"
+    }
+}
