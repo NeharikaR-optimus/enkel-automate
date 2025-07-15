@@ -1,0 +1,12 @@
+{
+    "routes": [
+        {
+            "route": "/allure",
+            "rewrite": "/allure-report/index.html"
+        },
+        {
+            "route": "/html",
+            "rewrite": "/index.html"
+        }
+    ]
+}
