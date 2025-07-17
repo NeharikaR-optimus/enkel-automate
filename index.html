@@ -22,6 +22,7 @@
             border-radius: 10px;
             margin-bottom: 30px;
             text-align: center;
+            position: relative; /* Added for button positioning */
         }
         .header h1 {
             margin: 0;
@@ -31,6 +32,22 @@
             margin: 10px 0 0 0;
             font-size: 1.2em;
             opacity: 0.9;
+        }
+        .allure-button {
+            display: inline-block;
+            background-color: #2ecc71; /* Green color for Allure button */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px; /* Space below header text */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .allure-button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
         }
         .summary {
             display: grid;
@@ -128,18 +145,22 @@
 <body>
     <div class="header">
         <h1>🤖 Slack RAG Bot Test Report</h1>
-        <p>Generated on 12/7/2025, 10:38:51 am</p>
+        <p>Generated on 17/7/2025, 1:57:24 pm</p>
+        <!-- Allure Report Navigation Button - ADDED HERE -->
+        <a href="/allure-report" class="allure-button">
+            View Allure Report
+        </a>
     </div>
 
     <div class="summary">
         <div class="stat-card">
             <h3>Total Queries</h3>
-            <div class="number info">3</div>
+            <div class="number info">5</div>
         </div>
         <div class="stat-card">
             <h3>Valid Responses</h3>
-            <div class="number success">1</div>
-            <div class="percentage">33%</div>
+            <div class="number success">2</div>
+            <div class="percentage">40%</div>
         </div>
         <div class="stat-card">
             <h3>Error Responses</h3>
@@ -148,8 +169,8 @@
         </div>
         <div class="stat-card">
             <h3>Timeouts</h3>
-            <div class="number warning">2</div>
-            <div class="percentage">67%</div>
+            <div class="number warning">3</div>
+            <div class="percentage">60%</div>
         </div>
     </div>
 
@@ -170,6 +191,17 @@
                     <div class="query">
                         <strong>Query 2:</strong> List all the documents for supplier Stationary
                     </div>
+                    <div class="response success">
+                        <strong>Response:</strong><br>
+                        The client 'stationary' does not exist in our system.  Did you mean: bctech association?
+ Please refer to the Home tab for instructions.
+                    </div>
+                </div>
+            
+                <div class="response-item">
+                    <div class="query">
+                        <strong>Query 3:</strong> List all the documents for supplier Stationary of Me
+                    </div>
                     <div class="response timeout">
                         <strong>Response:</strong><br>
                         No response received (timeout)
@@ -178,7 +210,17 @@
             
                 <div class="response-item">
                     <div class="query">
-                        <strong>Query 3:</strong> List all the documents for supplier Stationary of Me
+                        <strong>Query 4:</strong> List all the documents for the client Stewardship Society
+                    </div>
+                    <div class="response timeout">
+                        <strong>Response:</strong><br>
+                        No response received (timeout)
+                    </div>
+                </div>
+            
+                <div class="response-item">
+                    <div class="query">
+                        <strong>Query 5:</strong> List all the documents for the client Stewardship Society that are flagged
                     </div>
                     <div class="response timeout">
                         <strong>Response:</strong><br>

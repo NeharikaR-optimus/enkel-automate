@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","602832","Slack RAG_BOT automation flow","","Tue Jul 15 16:20:43 IST 2025","broken","Tue Jul 15 16:30:46 IST 2025","","slackBotFlow.spec.js","",""
+"","577611","Slack RAG_BOT automation flow","","Thu Jul 17 13:47:48 IST 2025","passed","Thu Jul 17 13:57:26 IST 2025","","slackBotFlow.spec.js","",""

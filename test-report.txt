@@ -1,16 +1,16 @@
 
 ═══════════════════════════════════════════════════════════════════════════════
-                        SLACK RAG BOT TEST REPORT
+                    SLACK RAG BOT TEST REPORT
 ═══════════════════════════════════════════════════════════════════════════════
 
-Generated on: 15/7/2025, 4:36:40 pm
+Generated on: 17/7/2025, 1:57:29 pm
 
 SUMMARY:
 --------
-Total Queries Sent:     3
-Valid Responses:        1 (33%)
-Error Responses:        0 (0%)
-Timeouts:               2 (67%)
+Total Queries Sent:      5
+Valid Responses:         2 (40%)
+Error Responses:         0 (0%)
+Timeouts:                3 (60%)
 
 DETAILED RESULTS:
 -----------------
@@ -20,9 +20,10 @@ Query: List all the documents that are not scanned
 Response: List all the documents that are not scanned
 ────────────────────────────────────────────────────────────────────────────────
 
-2. ⏱️ TIMEOUT
+2. ✅ SUCCESS
 Query: List all the documents for supplier Stationary
-Response: No response received (timeout)
+Response: The client 'stationary' does not exist in our system.  Did you mean: bctech association?
+ Please refer to the Home tab for instructions.
 ────────────────────────────────────────────────────────────────────────────────
 
 3. ⏱️ TIMEOUT
@@ -30,6 +31,16 @@ Query: List all the documents for supplier Stationary of Me
 Response: No response received (timeout)
 ────────────────────────────────────────────────────────────────────────────────
 
+4. ⏱️ TIMEOUT
+Query: List all the documents for the client Stewardship Society
+Response: No response received (timeout)
+────────────────────────────────────────────────────────────────────────────────
+
+5. ⏱️ TIMEOUT
+Query: List all the documents for the client Stewardship Society that are flagged
+Response: No response received (timeout)
+────────────────────────────────────────────────────────────────────────────────
+
 ═══════════════════════════════════════════════════════════════════════════════
-                              END OF REPORT
+                            END OF REPORT
 ═══════════════════════════════════════════════════════════════════════════════

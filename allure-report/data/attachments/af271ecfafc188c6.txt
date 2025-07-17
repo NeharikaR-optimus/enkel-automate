@@ -1,0 +1,6 @@
+📊 Generating reports...
+✅ Reports generated successfully!
+📄 HTML Report: index.html
+📄 Text Report: test-report.txt
+📊 Summary: 5/5 queries processed
+📝 All messages sent successfully

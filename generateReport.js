@@ -51,6 +51,7 @@ function generateHTMLReport(responses, testRunInfo) {
             border-radius: 10px;
             margin-bottom: 30px;
             text-align: center;
+            position: relative; /* Added for button positioning */
         }
         .header h1 {
             margin: 0;
@@ -60,6 +61,22 @@ function generateHTMLReport(responses, testRunInfo) {
             margin: 10px 0 0 0;
             font-size: 1.2em;
             opacity: 0.9;
+        }
+        .allure-button {
+            display: inline-block;
+            background-color: #2ecc71; /* Green color for Allure button */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px; /* Space below header text */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .allure-button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
         }
         .summary {
             display: grid;
@@ -158,6 +175,10 @@ function generateHTMLReport(responses, testRunInfo) {
     <div class="header">
         <h1>🤖 Slack RAG Bot Test Report</h1>
         <p>Generated on ${currentDate}</p>
+        <!-- Allure Report Navigation Button - ADDED HERE -->
+        <a href="/allure-report" class="allure-button">
+            View Allure Report
+        </a>
     </div>
 
     <div class="summary">
@@ -227,17 +248,17 @@ function generateTextReport(responses) {
 
     let report = `
 ═══════════════════════════════════════════════════════════════════════════════
-                        SLACK RAG BOT TEST REPORT
+                    SLACK RAG BOT TEST REPORT
 ═══════════════════════════════════════════════════════════════════════════════
 
 Generated on: ${currentDate}
 
 SUMMARY:
 --------
-Total Queries Sent:     ${totalQueries}
-Valid Responses:        ${validResponses} (${totalQueries > 0 ? Math.round((validResponses / totalQueries) * 100) : 0}%)
-Error Responses:        ${errorResponses} (${totalQueries > 0 ? Math.round((errorResponses / totalQueries) * 100) : 0}%)
-Timeouts:               ${timeouts} (${totalQueries > 0 ? Math.round((timeouts / totalQueries) * 100) : 0}%)
+Total Queries Sent:      ${totalQueries}
+Valid Responses:         ${validResponses} (${totalQueries > 0 ? Math.round((validResponses / totalQueries) * 100) : 0}%)
+Error Responses:         ${errorResponses} (${totalQueries > 0 ? Math.round((errorResponses / totalQueries) * 100) : 0}%)
+Timeouts:                ${timeouts} (${totalQueries > 0 ? Math.round((timeouts / totalQueries) * 100) : 0}%)
 
 DETAILED RESULTS:
 -----------------
@@ -257,7 +278,7 @@ ${'─'.repeat(80)}
 
     report += `
 ═══════════════════════════════════════════════════════════════════════════════
-                              END OF REPORT
+                            END OF REPORT
 ═══════════════════════════════════════════════════════════════════════════════
 `;
 

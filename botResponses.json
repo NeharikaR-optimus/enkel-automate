@@ -1,26 +1,38 @@
 {
   "testRunInfo": {
-    "timestamp": "2025-07-12T05:08:51.072Z",
-    "totalQueries": 3,
-    "completedQueries": 3
+    "timestamp": "2025-07-17T08:27:24.583Z",
+    "totalQueries": 5,
+    "completedQueries": 5
   },
   "responses": [
     {
       "query": "List all the documents that are not scanned",
       "response": "List all the documents that are not scanned",
-      "timestamp": "2025-07-12T05:04:43.414Z",
+      "timestamp": "2025-07-17T08:19:58.509Z",
       "responseTime": 0
     },
     {
       "query": "List all the documents for supplier Stationary",
-      "response": "No response received (timeout)",
-      "timestamp": "2025-07-12T05:06:46.753Z",
-      "responseTime": 120
+      "response": "The client 'stationary' does not exist in our system.  Did you mean: bctech association?\n Please refer to the Home tab for instructions.",
+      "timestamp": "2025-07-17T08:21:13.434Z",
+      "responseTime": 70
     },
     {
       "query": "List all the documents for supplier Stationary of Me",
       "response": "No response received (timeout)",
-      "timestamp": "2025-07-12T05:08:50.066Z",
+      "timestamp": "2025-07-17T08:23:16.837Z",
+      "responseTime": 120
+    },
+    {
+      "query": "List all the documents for the client Stewardship Society",
+      "response": "No response received (timeout)",
+      "timestamp": "2025-07-17T08:25:20.219Z",
+      "responseTime": 120
+    },
+    {
+      "query": "List all the documents for the client Stewardship Society that are flagged",
+      "response": "No response received (timeout)",
+      "timestamp": "2025-07-17T08:27:23.568Z",
       "responseTime": 120
     }
   ]
